@@ -138,6 +138,13 @@ h1, h2, h3 { font-family: var(--font-display); }
 .trust-strip b:nth-of-type(2) i { color: var(--blue); }
 .trust-strip b:nth-of-type(3) i { color: var(--pink); }
 
+.trust-count { display: flex; justify-content: center; padding-top: 42px; }
+.trust-count-card { display: flex; width: min(390px, 100%); min-height: 205px; align-items: center; flex-direction: column; justify-content: center; padding: 27px 42px 24px; border: 1px solid rgba(165,138,255,.22); border-radius: 20px; background: radial-gradient(ellipse at 50% 0, rgba(165,138,255,.17), transparent 72%), rgba(17,18,28,.92); box-shadow: 0 16px 50px rgba(0,0,0,.2), 0 0 40px rgba(134,102,220,.07); }
+.trust-count-icon { margin-bottom: 9px; color: var(--purple); font-size: 19px; }
+.trust-count-card strong { color: #f4f0ff; font: 700 clamp(38px, 5vw, 48px)/1.15 var(--font-display); letter-spacing: -.055em; }
+.trust-count-label { margin-top: 6px; color: #d1cbe0; font: 500 14px var(--font-display); }
+.trust-count-note { margin-top: 11px; color: #85869a; font-size: 10px; letter-spacing: .05em; }
+
 .features { padding-block: 112px; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 45px; margin-bottom: 40px; }
 .section-heading h2, .commands-copy h2, .about h2, .invite-card h2 { margin: 14px 0 0; font-size: clamp(35px, 4vw, 48px); line-height: 1.08; letter-spacing: -.055em; }
