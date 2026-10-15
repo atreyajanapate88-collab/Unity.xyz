@@ -84,12 +84,18 @@ h1, h2, h3 { font-family: var(--font-display); }
 .avatar-stack i:nth-child(3) { background: #392537; color: #ffc0df; }
 
 .hero-art { position: relative; display: grid; min-height: 465px; place-items: center; }
-.orbit { position: absolute; border: 1px solid rgba(174,151,255,.13); border-radius: 50%; transform: rotate(-24deg); }
-.orbit--one { width: 490px; height: 230px; }
-.orbit--two { width: 410px; height: 340px; transform: rotate(48deg); }
+.orbit { position: absolute; border: 1px solid rgba(174,151,255,.13); border-radius: 50%; will-change: transform; }
+.orbit--one { width: 490px; height: 230px; animation: orbit-diagonal-one 9s ease-in-out infinite alternate; }
+.orbit--two { width: 410px; height: 340px; animation: orbit-diagonal-two 11s ease-in-out infinite alternate; }
 .hero-card { position: relative; z-index: 1; width: min(365px, 100%); padding: 17px; border: 1px solid rgba(255,255,255,.12); border-radius: 20px; background: linear-gradient(155deg, rgba(31,32,47,.98), rgba(17,18,28,.98)); box-shadow: 0 28px 100px rgba(0,0,0,.5), 0 0 65px rgba(134,102,220,.12); transform: rotate(2deg); }
-.hero-card[data-hero-parallax] { --zoom-x: 50%; --zoom-y: 50%; --tilt-x: 0deg; --tilt-y: 0deg; transform-origin: var(--zoom-x) var(--zoom-y); transition: transform .22s ease-out, box-shadow .22s ease-out; }
-.hero-card[data-hero-parallax]:hover { transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) rotate(2deg) scale(1.045); box-shadow: 0 32px 110px rgba(0,0,0,.55), 0 0 75px rgba(134,102,220,.2); }
+@keyframes orbit-diagonal-one {
+  from { transform: rotate(-24deg) translate3d(-9px, 7px, 0); }
+  to { transform: rotate(-24deg) translate3d(9px, -7px, 0); }
+}
+@keyframes orbit-diagonal-two {
+  from { transform: rotate(48deg) translate3d(8px, 10px, 0); }
+  to { transform: rotate(48deg) translate3d(-8px, -10px, 0); }
+}
 .card-window { display: flex; height: 36px; align-items: center; justify-content: space-between; margin: -4px -4px 17px; padding: 0 6px; }
 .window-dots { display: flex; gap: 5px; }
 .window-dots i { width: 6px; height: 6px; border-radius: 50%; background: #4c4a5c; }
@@ -292,5 +298,5 @@ h1, h2, h3 { font-family: var(--font-display); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
-  .hero-card[data-hero-parallax]:hover { transform: rotate(2deg); }
+  .orbit { animation: none; }
 }
